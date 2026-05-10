@@ -43,7 +43,7 @@ This project focuses on backend API development and frontend integration.
 ### Backend
 
 ```bash
-cd taskmaster-pro-v2-backend
+cd backend
 npm install
 ```
 
@@ -68,7 +68,7 @@ npm run dev
 ### Frontend
 
 ```bash
-cd taskmaster-pro-v2-frontend
+cd frontend
 npm install
 npm run dev
 ```
