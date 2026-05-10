@@ -147,4 +147,4 @@ Project is completed and working.
 
 ## Demo Video
 
-[Watch Demo Video Here]((https://drive.google.com/file/d/1hnAYZtmd1yF-eOLatC9cCrBLjcq04Ed6/view?usp=sharing))
+[Watch Demo Video Here](https://drive.google.com/file/d/1hnAYZtmd1yF-eOLatC9cCrBLjcq04Ed6/view?usp=sharing)
