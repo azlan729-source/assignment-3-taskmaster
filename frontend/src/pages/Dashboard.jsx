@@ -9,7 +9,13 @@ function Dashboard() {
     const fetchTasks = async () => {
       try {
         const res = await api.get('/tasks');
-        setTasks(res.data.data);
+        console.log('GET TASKS RESPONSE:', res.data);
+
+        const taskData = Array.isArray(res.data)
+          ? res.data
+          : res.data.data || [];
+
+        setTasks(taskData);
       } catch (err) {
         console.error(err);
       }
@@ -19,16 +25,24 @@ function Dashboard() {
   }, []);
 
   const createTask = async () => {
-    try {
-      await api.post('/tasks', { title });
-      setTitle('');
+  if (!title.trim()) {
+    alert('Task title is required');
+    return;
+  }
 
-      const res = await api.get('/tasks');
-      setTasks(res.data.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  try {
+    const res = await api.post('/tasks', { title });
+
+    const newTask = res.data.data || res.data;
+
+    setTasks((prevTasks) => [newTask, ...prevTasks]);
+
+    setTitle('');
+  } catch (err) {
+    alert(err.response?.data?.message || 'Failed to create task');
+    console.error(err);
+  }
+};
 
   const logout = () => {
     localStorage.removeItem('token');

@@ -35,6 +35,7 @@ exports.getTasks = async (req, res) => {
       where,
       limit: parseInt(limit),
       offset: parseInt(offset),
+      order: [['createdAt', 'DESC']],
     });
 
     res.json({
@@ -42,7 +43,6 @@ exports.getTasks = async (req, res) => {
       page: parseInt(page),
       data: tasks.rows,
     });
-
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
